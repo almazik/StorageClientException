@@ -21,7 +21,7 @@ Then press Enter...");
 
 			var context = new TableServiceContext(cloudStorageAccount.TableEndpoint.AbsoluteUri, cloudStorageAccount.Credentials)
 			{
-				RetryPolicy = RetryPolicies.RetryExponential(10, TimeSpan.FromSeconds(1)),
+				RetryPolicy = RetryPolicies.Retry(10, TimeSpan.FromSeconds(1)), //just to show that it's not used
 			};
 
 			var dataServiceQuery = context.CreateQuery<TableServiceEntity>("TableServiceEntity");
